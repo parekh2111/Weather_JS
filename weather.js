@@ -1,33 +1,22 @@
-// @ts-nocheck
-class Weather{
-	constructor(city, state){
-		this.apiKey = 'c6f83ae1a5f2b0e36791b60a4c14b81f';
-		//this.apiKey = '99dfe35fcb7de1ee';
-		this.city = city;
-		this.state = state;
-	}
-	//Fetch Weather from API
+class Weather {
+  constructor(city, state) {
+    this.apiKey = '99dfe35fcb7de1ee';
+    this.city = city;
+    this.state = state;
+  }
 
-	async getWeather(){
-		const response = await fetch (http://api.weatherstack.com/current
-			?${this.apiKey}&query =${this.city}.json )
-		
-		
-		
-		//(`http://api.wunderground.com/api/${this.apiKey}/conditions/q/${this.state}/${this.city}.json`);
-		
-		const responseData = await response.json();
-		
-		return responseData.current_observation;
+  // Fetch weather from API
+  async getWeather() {
+    const response = await fetch(`http://api.wunderground.com/api/${this.apiKey}/conditions/q/${this.state}/${this.city}.json`);
 
-	}
+    const responseData = await response.json();
 
-	// Change Wather location
+    return responseData.current_observation;
+  }
 
-	changeLocation(city, State){
-		this.city = city;
-		this.state = state;
-
-	}
-
+  // Change weather location
+  changeLocation(city, state) {
+    this.city = city;
+    this.state = state;
+  }
 }
